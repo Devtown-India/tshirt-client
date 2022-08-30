@@ -16,8 +16,6 @@ const ImageUpload = ({setImage}) => {
             formData.append("fileName", file.name)
             const res = await axios.post(`https://api.imgur.com/3/image`, formData, {
                 headers: {
-                    // ! add clientID to env
-                    'User-Agent':'Thunder Client (https://www.thunderclient.com)',
                     'Authorization': `Client-ID 0f6ef37cd429a1a`,
                     'content-type': 'multipart/form-data',
                 }
