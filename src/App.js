@@ -16,8 +16,8 @@ import { getProducts } from "./actions/product";
 import { loadCart } from "./actions/cart";
 import ImageUpload from "./components/utility/ImageUpload";
 import Loader from "./layout/Loader";
-import axios from "axios";
 import AdminRoute from "./routing/AdminRoute";
+import axios from "./axiosInstance";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function App() {
         payload: { state: true },
       });
       const res = await axios.get(
-        `http://localhost:8080/api/v1/auth/verify/${token}`
+        `/auth/verify/${token}`
       );
       axios.defaults.headers.common['authorization'] = `bearer ${token}`;
       const { success, message, data } = res.data;

@@ -1,5 +1,5 @@
-import axios from "axios"
 import toast from "react-hot-toast"
+import axios from "../axiosInstance"
 
 export const deleteProduct = (productId) => {
 
@@ -11,7 +11,7 @@ export const deleteProduct = (productId) => {
 
 export const addProduct = (product) => async (dispatch) => {
     try {
-        const res = await axios.post('http://localhost:8080/api/v1/product/add', product)
+        const res = await axios.post('/product/add', product)
         console.log(res)
         dispatch({
             type: "ADD_PRODUCT",

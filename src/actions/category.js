@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
-import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import axios from '../axiosInstance';
 
 
 
@@ -9,7 +9,7 @@ export const addCategory = (name, description) => async (dispatch) => {
     try {
         const base_Url = 'http://localhost:8080'
 
-        const res = await axios.post(`${base_Url}/api/v1/category/add`, {
+        const res = await axios.post(`/category/add`, {
             name, description
         },{
             headers: axios.defaults.headers.common
