@@ -8,11 +8,11 @@ import {
     Heading,
     Button
 } from '@chakra-ui/react'
-import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { addProduct } from '../../actions/product'
+import axios from '../../axiosInstance';
 import ImageUpload from '../utility/ImageUpload';
 
 
@@ -31,7 +31,7 @@ const AddProduct = () => {
     const dispatch = useDispatch()
 
     const getCategories = async () => {
-        const res = await axios.get('http://localhost:8080/api/v1/category/all')
+        const res = await axios.get('/category/all')
         const { categories, message } = res.data
         console.log(categories)
         setCategories(categories)
