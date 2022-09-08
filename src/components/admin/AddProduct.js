@@ -42,9 +42,9 @@ const AddProduct = () => {
     }, [])
 
     const handleAddProduct = () => {
-        // dispatch(addProduct({
-        //     name, imageUrl, description, category, color, listPrice, price, stock
-        // }))
+        dispatch(addProduct({
+            name, imageUrl, description, category, color, listPrice, price, stock
+        }))
         console.log({
             name, imageUrl, description, category, color, listPrice, price, stock
         })

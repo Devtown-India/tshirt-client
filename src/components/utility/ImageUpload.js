@@ -20,8 +20,8 @@ const ImageUpload = ({setImage}) => {
                     'content-type': 'multipart/form-data',
                 }
             })
-            const{data:{link,deleteHash}} = res.data
-            setImage({link,deleteHash})
+            const{data:{link,deletehash}} = res.data
+            setImage({link,deletehash})
         } catch (error) {
             toast.error("failed to upload image")
             console.log(error)

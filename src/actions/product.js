@@ -1,36 +1,42 @@
-import toast from "react-hot-toast"
-import axios from "../axiosInstance"
+import toast from "react-hot-toast";
+import axios from "../axiosInstance";
 
 export const deleteProduct = (productId) => {
-
-    return {
-        type: "DELETE_PRODUCT",
-        payload: { productId }
-    }
-}
+  return {
+    type: "DELETE_PRODUCT",
+    payload: { productId },
+  };
+};
 
 export const addProduct = (product) => async (dispatch) => {
-    try {
-        const res = await axios.post('/product/add', product)
-        console.log(res)
-        dispatch({
-            type: "ADD_PRODUCT",
-            payload: { product }
-        })
-        toast.success('Product added')
+  try {
+    dispatch({
+      type: "SET_LOADING",
+      payload: { state: true },
+    });
+    const res = await axios.post("/product/add", product);
 
-    } catch (error) {
-        console.log(error)
-        toast.error(error.message)
-    }
-}
+    dispatch({
+      type: "ADD_PRODUCT",
+      payload: { product },
+    });
+    toast.success("Product added");
+  } catch (error) {
+    console.log(error);
+    toast.error(error.message);
+  } finally {
+    dispatch({
+      type: "SET_LOADING",
+      payload: { state: false },
+    });
+  }
+};
 
 export const getProducts = (name, description) => async (dispatch) => {
-    const res = await axios.get('http://localhost:8080/api/v1/product/all')
-    const { products } = res.data
-    dispatch({
-        type: "GET_PRODUCTS",
-        payload: { products }
-    })
-}
-
+  const res = await axios.get("http://localhost:8080/api/v1/product/all");
+  const { products } = res.data;
+  dispatch({
+    type: "GET_PRODUCTS",
+    payload: { products },
+  });
+};
