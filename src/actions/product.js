@@ -33,7 +33,8 @@ export const addProduct = (product) => async (dispatch) => {
 };
 
 export const getProducts = (name, description) => async (dispatch) => {
-  const res = await axios.get("http://localhost:8080/api/v1/product/all");
+  const res = await axios.get("/product/all");
+
   const { products } = res.data;
   dispatch({
     type: "GET_PRODUCTS",

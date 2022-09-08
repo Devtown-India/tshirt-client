@@ -73,7 +73,7 @@ export default function Product() {
                         rounded={'md'}
                         alt={'feature image'}
                         src={
-                            selectedProduct && selectedProduct.imageUrl
+                            selectedProduct && selectedProduct.imageUrl.link
                         }
                         objectFit={'cover'}
                     />
@@ -138,7 +138,7 @@ export default function Product() {
                             }}>
                             Add To Cart &nbsp; &nbsp; <IoCartOutline size={30} />
                         </Button>
-                        <Heading color={'gray.900'} textAlign={'center'} borderRadius={'10px'} flexGrow={'2'} background={'gray.100'}> $ {selectedProduct && selectedProduct.listPrice}</Heading>
+                        <Heading color={'gray.900'} textAlign={'center'} borderRadius={'10px'} flexGrow={'2'} background={'gray.100'}>  &#x20B9; {selectedProduct && selectedProduct.listPrice}</Heading>
                     </Flex>
                 </Stack>
 

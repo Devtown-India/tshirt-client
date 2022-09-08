@@ -9,8 +9,8 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
+import axios from '../../axiosInstance'
 import { formatPrice } from './PriceTag'
-import axios from 'axios'
 
 
 const OrderSummaryItem = (props) => {
@@ -53,8 +53,8 @@ export const CartOrderSummary = ({ total }) => {
         }
 
         // creating a new order
-        const result = await axios.post("http://localhost:8080/api/v1/order/createOrder", {
-            amount: '50000'
+        const result = await axios.post("/order/createOrder", {
+            amount: total*100
         });
 
         if (!result) {
@@ -66,7 +66,7 @@ export const CartOrderSummary = ({ total }) => {
         const { amount, id: order_id, currency } = result.data;
 
         const options = {
-            key: "rzp_test_g5IaMybMrLfCiM", // Enter the Key ID generated from the Dashboard
+            key: "rzp_test_j6l92FGAKfP5bv", // Enter the Key ID generated from the Dashboard
             amount: amount.toString(),
             currency: currency,
             name: "+Plus.",
@@ -81,7 +81,7 @@ export const CartOrderSummary = ({ total }) => {
                     razorpaySignature: response.razorpay_signature,
                 };
 
-                const result = await axios.post("http://localhost:8080/api/v1/order/verify", data);
+                const result = await axios.post("/order/verify", data);
 
                 alert(result.data.msg);
             },
@@ -124,7 +124,7 @@ export const CartOrderSummary = ({ total }) => {
                         Total
                     </Text>
                     <Text fontSize="xl" fontWeight="extrabold">
-                        ${total}
+                        &#x20B9;{total}
                     </Text>
                 </Flex>
             </Stack>

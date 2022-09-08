@@ -123,7 +123,6 @@ export default function Navbar() {
 
 const DesktopNav = () => {
   const { user } = useSelector((state) => state.auth);
-  console.log(user.role);
   return (
     <Stack direction={"row"} spacing={4}>
       {user.role > 0
@@ -235,12 +234,12 @@ const NAV_ITEMS = [
     to: "/shop",
   },
   {
-    label: "Shop for iPhone",
-    to: "/shop?q=iphone",
+    label: "Shop for Tshirts",
+    to: "/shop?q=shirts",
   },
   {
-    label: "Shop for Watch",
-    to: "/shop?q=watch",
+    label: "Shop for Joggers",
+    to: "/shop?q=joggers",
   },
 ];
 const NAV_ITEMS_ADMIN = [
@@ -248,13 +247,13 @@ const NAV_ITEMS_ADMIN = [
     label: "Shop",
     to: "/shop",
   },
-  {
-    label: "Shop for iPhone",
-    to: "/shop?q=iphone",
+ {
+    label: "Shop for Tshirts",
+    to: "/shop?q=shirts",
   },
   {
-    label: "Shop for Watch",
-    to: "/shop?q=watch",
+    label: "Shop for Joggers",
+    to: "/shop?q=joggers",
   },
   {
     label: "Admin",

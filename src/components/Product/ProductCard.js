@@ -10,7 +10,7 @@ import {
 
 
 const ProductCard = ({ data }) => {
-    const { imageUrl, actualPrice, listingPrice, name, color } = data
+    const { imageUrl:{link}, actualPrice, listingPrice, name, color } = data
     return (
         <Box
             role={'group'}
@@ -36,7 +36,7 @@ const ProductCard = ({ data }) => {
                     pos: 'absolute',
                     top: 5,
                     left: 0,
-                    backgroundImage: `url(${imageUrl})`,
+                    backgroundImage: `url(${link})`,
                     filter: 'blur(15px)',
                     zIndex: -1,
                 }}
@@ -50,7 +50,7 @@ const ProductCard = ({ data }) => {
                     height={230}
                     width={282}
                     objectFit={'cover'}
-                    src={imageUrl}
+                    src={link}
                 />
             </Box>
             <Stack pt={10} align={'center'}>

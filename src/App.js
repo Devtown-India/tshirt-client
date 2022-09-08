@@ -66,6 +66,9 @@ function App() {
           payload: {},
         });
     }
+     dispatch(getProducts())
+      dispatch(loadCart())
+
   }, []);
 
   return (

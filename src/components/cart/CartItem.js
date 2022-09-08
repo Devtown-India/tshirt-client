@@ -28,7 +28,7 @@ export const CartItem = (props) => {
         description,
         quantity,
         imageUrl,
-        currency,
+        currency="INR",
         price,
         listPrice,
         onChangeQuantity,
